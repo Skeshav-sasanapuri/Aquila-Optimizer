@@ -93,7 +93,6 @@ def AO(N, T, LB, UB, Dim, F_obj):
                         Ffun[i] = Ffun_new[i]
 
         if t % 1 == 0:
-            # print('At iteration', t, 'the best solution fitness is', Best_FF)
             print('At iteration', t, 'the best solution fitness is {:.8f}'.format(Best_FF))
         conv.append(Best_FF)
         t += 1
@@ -163,3 +162,22 @@ Best_FF, Best_P, conv = AO(population_size, M_Iter, LB_fourpeak, UB_fourpeak, Di
 
 print('The best-obtained solution by AO is: [{:.8f}'.format(Best_P[0]), '{:.8f}'.format(Best_P[1]), ']')
 print('The best optimal values of the objective function found by AO is: {:.8f}'.format(Best_FF))
+
+
+Max_iter = 100
+pop_size = 30
+G2 = 2 * np.random.rand() - 1
+G1 = 2 * (1 - t / T)
+to = np.arange(1, Dim + 1)
+u = 0.0265
+r0 = 10
+r = r0 + u * to
+omega = 0.005
+phi0 = 3 * np.pi / 2
+phi = -omega * to + phi0
+x = r * np.sin(phi)
+y = r * np.cos(phi)
+beta = 1.5
+s = 0.5
+alpha = 0.1
+delta = 0.1
